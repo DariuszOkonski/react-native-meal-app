@@ -1,7 +1,7 @@
 import { Text, View, FlatList, StyleSheet } from 'react-native';
 import { MEALS, CATEGORIES } from '../data/dummy-data';
 import MealItem from '../components/MealItem';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 
 function MealsOverviewScreen({ route, navigation }) {
   const catId = route.params.categoryId;
@@ -10,7 +10,7 @@ function MealsOverviewScreen({ route, navigation }) {
     return mealItem.categoryIds.indexOf((catId) => catId >= 0);
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     navigation.setOptions({
       title: categoryTitle,
     });
